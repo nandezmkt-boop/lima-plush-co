@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — derived from the Lima Plush Co. logo (forest green + gold) */
+  --color-forest: #1f3d2c;
+  --color-forest-dark: #122417;
+  --color-forest-light: #2f5940;
+  --color-gold: #b8924a;
+  --color-gold-light: #d9b878;
+  --color-gold-dark: #8f6e34;
+  --color-cream: #f9f5ec;
+  --color-cream-dark: #f1ead9;
+  --color-sand: #eadfc8;
+  --color-sand-dark: #ddcda5;
+  --color-ink: #1c1b17;
+  --color-ink-soft: #4a463c;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 20px 60px -20px rgb(28 27 23 / 0.25);
+  --shadow-card: 0 12px 30px -14px rgb(28 27 23 / 0.2);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-sand-dark);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-forest-dark);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-dark);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-lp {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-lp {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-lp {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 2px;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-forest-dark);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-forest);
+    border: 1px solid var(--color-forest);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-forest);
+    color: var(--color-cream);
+  }
+
+  .btn-gold {
+    background-color: var(--color-gold);
+    color: var(--color-forest-dark);
+  }
+
+  .btn-gold:hover {
+    background-color: var(--color-gold-light);
+  }
+}
