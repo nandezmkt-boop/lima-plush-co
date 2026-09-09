@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://limaplushco.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lima-plush-co.vercel.app";
 
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 
