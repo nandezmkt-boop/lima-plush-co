@@ -57,7 +57,7 @@ export default function Logo({ tone = "brand", className, markClassName, textCla
       <LogoMark tone={tone} className={markClassName ?? "h-8 w-auto lg:h-9"} />
       <span
         className={`whitespace-nowrap font-brand font-semibold uppercase leading-none tracking-[0.07em] ${COLORS[tone].text} ${
-          textClassName ?? "text-[15px] lg:text-base"
+          textClassName ?? "text-[0.9375rem] lg:text-base"
         }`}
       >
         Lima Plush Co.

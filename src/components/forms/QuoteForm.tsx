@@ -54,7 +54,7 @@ function fileToBase64(file: File): Promise<string> {
 }
 
 const inputClasses =
-  "w-full rounded-sm border border-sand-dark bg-cream px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft/45 transition-colors focus:border-forest";
+  "w-full rounded-sm border border-sand-dark bg-cream px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-soft/45 transition-colors focus:border-forest";
 
 export default function QuoteForm({ dict, whatsappMessage, locale }: QuoteFormProps) {
   const [step, setStep] = useState(0);
@@ -130,7 +130,7 @@ export default function QuoteForm({ dict, whatsappMessage, locale }: QuoteFormPr
       <div className="flex flex-col items-center gap-4 rounded-sm bg-cream px-6 py-16 text-center shadow-card">
         <CheckCircle2 size={44} className="text-forest" />
         <h3 className="text-2xl font-semibold text-forest">{dict.success.title}</h3>
-        <p className="max-w-md text-[15px] leading-relaxed text-ink-soft">{dict.success.description}</p>
+        <p className="max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">{dict.success.description}</p>
         {whatsappLink ? (
           <a href={whatsappLink} target="_blank" rel="noreferrer noopener" className="btn btn-secondary mt-2">
             {dict.success.whatsappCta}

@@ -21,7 +21,7 @@ export default function QuoteFormSection({ dict, whatsappMessage, locale }: Quot
           <Reveal className="flex flex-col gap-4">
             <span className="eyebrow">{dict.eyebrow}</span>
             <h2 className="max-w-md text-3xl leading-[1.1] sm:text-4xl">{dict.heading}</h2>
-            <p className="max-w-md text-[15px] leading-relaxed text-ink-soft">{dict.intro}</p>
+            <p className="max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">{dict.intro}</p>
           </Reveal>
 
           <Reveal delay={0.1} className="flex flex-col gap-3 border-t border-sand-dark pt-6">

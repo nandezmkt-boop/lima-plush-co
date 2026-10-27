@@ -65,7 +65,7 @@ function CaseVisual({ item }: { item: CaseStudy }) {
             />
           </div>
           {item.detailLabel ? (
-            <figcaption className="mt-2 w-fit rounded-sm bg-forest px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-cream">
+            <figcaption className="mt-2 w-fit rounded-sm bg-forest px-2 py-1 text-[0.625rem] font-semibold uppercase tracking-wide text-cream">
               {item.detailLabel}
             </figcaption>
           ) : null}
@@ -176,7 +176,7 @@ export default function CaseStudies({ dict }: CaseStudiesProps) {
                 className="group flex h-8 items-center px-1"
               >
                 <span
-                  className={`block h-[3px] rounded-full transition-all duration-500 ${
+                  className={`block h-[0.1875rem] rounded-full transition-all duration-500 ${
                     i === active ? "w-10 bg-forest" : "w-5 bg-sand-dark group-hover:bg-gold"
                   }`}
                 />

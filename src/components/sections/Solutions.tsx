@@ -35,7 +35,7 @@ export default function Solutions({ dict }: SolutionsProps) {
                   sizes="(min-width: 1024px) 46vw, 92vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
-                <span className="absolute left-4 top-4 rounded-sm bg-forest px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-cream">
+                <span className="absolute left-4 top-4 rounded-sm bg-forest px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-wide text-cream">
                   {option.tag}
                 </span>
               </div>
@@ -43,7 +43,7 @@ export default function Solutions({ dict }: SolutionsProps) {
               <div className="flex flex-1 flex-col gap-6 p-7 lg:p-8">
                 <div className="flex flex-col gap-3">
                   <h3 className="text-2xl font-semibold text-forest lg:text-[1.65rem]">{option.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-ink-soft">{option.description}</p>
+                  <p className="text-[0.9375rem] leading-relaxed text-ink-soft">{option.description}</p>
                   <span className="w-fit rounded-full border border-gold-dark/40 bg-gold/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-gold-dark">
                     {option.minOrder}
                   </span>

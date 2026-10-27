@@ -39,7 +39,7 @@ export default function Packaging({ dict }: PackagingProps) {
                   </span>
                   <div className="flex flex-col gap-1.5">
                     <h3 className="font-display text-xl text-cream lg:text-2xl">{item.title}</h3>
-                    <p className="max-w-md text-sm leading-relaxed text-cream/65 sm:text-[15px]">{item.description}</p>
+                    <p className="max-w-md text-sm leading-relaxed text-cream/65 sm:text-[0.9375rem]">{item.description}</p>
                   </div>
                 </Reveal>
               </li>

@@ -15,8 +15,8 @@ export default function VideoShowcase({ dict }: VideoShowcaseProps) {
           <Reveal className="flex flex-col gap-4">
             <span className="eyebrow">{dict.eyebrow}</span>
             <h2 className="max-w-md text-3xl leading-[1.1] sm:text-4xl">{dict.heading}</h2>
-            <p className="max-w-md text-[15px] leading-relaxed text-ink-soft">{dict.description}</p>
-            <p className="max-w-md border-l-2 border-gold pl-4 text-[15px] font-semibold leading-relaxed text-forest">
+            <p className="max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">{dict.description}</p>
+            <p className="max-w-md border-l-2 border-gold pl-4 text-[0.9375rem] font-semibold leading-relaxed text-forest">
               {dict.note}
             </p>
           </Reveal>

@@ -39,27 +39,27 @@ export default function Header({ locale, nav }: HeaderProps) {
           : "bg-transparent"
       }`}
     >
-      <div className="container-lp flex h-[68px] items-center justify-between lg:h-20">
+      <div className="container-lp flex h-[4.25rem] items-center justify-between lg:h-20">
         <Link href={`/${locale}#inicio`} onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex 2xl:gap-8">
+        <nav className="hidden items-center gap-5 xl:flex">
           {nav.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium uppercase tracking-wide text-ink-soft transition-colors hover:text-forest"
+              className="text-[0.8125rem] font-medium uppercase tracking-wide text-ink-soft transition-colors hover:text-forest"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 xl:flex 2xl:gap-5">
+        <div className="hidden items-center gap-4 xl:flex">
           <Link
             href={`/${otherLocale}`}
-            className="text-[13px] font-semibold uppercase tracking-wide text-ink-soft transition-colors hover:text-forest"
+            className="text-[0.8125rem] font-semibold uppercase tracking-wide text-ink-soft transition-colors hover:text-forest"
           >
             {nav.langSwitchLabel}
           </Link>
@@ -87,7 +87,7 @@ export default function Header({ locale, nav }: HeaderProps) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-sand-dark/70 py-3.5 text-[15px] font-medium text-ink"
+                className="border-b border-sand-dark/70 py-3.5 text-[0.9375rem] font-medium text-ink"
               >
                 {link.label}
               </a>

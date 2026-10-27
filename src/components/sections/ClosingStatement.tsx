@@ -11,7 +11,7 @@ export default function ClosingStatement({ dict }: ClosingStatementProps) {
     <section className="relative overflow-hidden bg-forest-dark py-24 text-cream lg:py-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[37.5rem] w-[56.25rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[7.5rem]"
       />
       <div className="container-lp relative flex flex-col items-center gap-7 text-center">
         <Reveal>

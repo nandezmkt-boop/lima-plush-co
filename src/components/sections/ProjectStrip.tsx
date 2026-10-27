@@ -56,7 +56,7 @@ export default function ProjectStrip({ labels, items }: ProjectStripProps) {
                 />
               </div>
               <figcaption className="mt-3.5 flex flex-col gap-1">
-                <span className="text-[11px] font-semibold uppercase tracking-wide text-gold-dark">{item.tag}</span>
+                <span className="text-[0.6875rem] font-semibold uppercase tracking-wide text-gold-dark">{item.tag}</span>
                 <span className="text-sm leading-snug text-ink">{item.caption}</span>
               </figcaption>
             </figure>

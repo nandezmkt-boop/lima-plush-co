@@ -25,7 +25,7 @@ export default function ValueProps({ dict }: ValuePropsProps) {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3 className="text-xl font-semibold text-forest">{item.title}</h3>
-              <p className="text-[15px] leading-relaxed text-ink-soft">
+              <p className="text-[0.9375rem] leading-relaxed text-ink-soft">
                 <Emphasis text={item.description} />
               </p>
             </Reveal>

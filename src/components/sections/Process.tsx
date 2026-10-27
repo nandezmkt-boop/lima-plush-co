@@ -14,7 +14,7 @@ export default function Process({ dict }: ProcessProps) {
         <SectionHeading eyebrow={dict.eyebrow} heading={dict.heading} intro={dict.intro} align="center" />
 
         <div className="relative mx-auto mt-16 max-w-3xl">
-          <div aria-hidden className="absolute left-[27px] top-2 bottom-2 w-px bg-sand-dark sm:left-[31px]" />
+          <div aria-hidden className="absolute left-[1.6875rem] top-2 bottom-2 w-px bg-sand-dark sm:left-[1.9375rem]" />
           <ol className="flex flex-col gap-10">
             {dict.steps.map((step, index) => (
               <li key={step.number}>
@@ -24,7 +24,7 @@ export default function Process({ dict }: ProcessProps) {
                   </span>
                   <div className="flex flex-col gap-1.5 pt-2">
                     <h3 className="text-lg font-semibold text-forest sm:text-xl">{step.title}</h3>
-                    <p className="max-w-lg text-sm leading-relaxed text-ink-soft sm:text-[15px]">{step.description}</p>
+                    <p className="max-w-lg text-sm leading-relaxed text-ink-soft sm:text-[0.9375rem]">{step.description}</p>
                     {step.views ? (
                       <div className="mt-3 grid max-w-sm grid-cols-3 gap-2.5">
                         {step.views.map((view) => (
@@ -34,11 +34,11 @@ export default function Process({ dict }: ProcessProps) {
                                 src={view.image}
                                 alt={(step.viewsAlt ?? "").replace("{view}", view.label.toLowerCase())}
                                 fill
-                                sizes="(min-width: 640px) 120px, 28vw"
+                                sizes="(min-width: 1440px) 9vw, (min-width: 640px) 130px, 28vw"
                                 className="object-cover"
                               />
                             </div>
-                            <figcaption className="text-[11px] uppercase tracking-wide text-ink-soft/80">
+                            <figcaption className="text-[0.6875rem] uppercase tracking-wide text-ink-soft/80">
                               {view.label}
                             </figcaption>
                           </figure>

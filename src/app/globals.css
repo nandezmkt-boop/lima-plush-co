@@ -19,8 +19,8 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-brand: var(--font-montserrat), var(--font-inter), ui-sans-serif, sans-serif;
 
-  --shadow-soft: 0 20px 60px -20px rgb(28 27 23 / 0.25);
-  --shadow-card: 0 12px 30px -14px rgb(28 27 23 / 0.2);
+  --shadow-soft: 0 1.25rem 3.75rem -1.25rem rgb(28 27 23 / 0.25);
+  --shadow-card: 0 0.75rem 1.875rem -0.875rem rgb(28 27 23 / 0.2);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-marquee: marquee 32s linear infinite;
@@ -52,6 +52,10 @@
   }
 
   html {
+    /* The layout is composed at 1440px; on wider screens every rem-based size
+       grows with the viewport so the composition keeps its proportions instead
+       of shrinking into a narrow centered column. */
+    font-size: clamp(100%, 100vw / 90, 200%);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }

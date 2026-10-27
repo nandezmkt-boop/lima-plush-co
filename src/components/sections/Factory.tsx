@@ -24,7 +24,7 @@ export default function Factory({ dict }: FactoryProps) {
             {dict.stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-1 px-2 py-5 text-center">
                 <span className="font-display text-2xl italic text-forest sm:text-3xl">{stat.value}</span>
-                <span className="text-[11px] uppercase leading-tight tracking-wide text-ink-soft/70">
+                <span className="text-[0.6875rem] uppercase leading-tight tracking-wide text-ink-soft/70">
                   {stat.label}
                 </span>
               </div>
@@ -39,7 +39,7 @@ export default function Factory({ dict }: FactoryProps) {
           </Reveal>
           {dict.paragraphs.map((paragraph, index) => (
             <Reveal key={paragraph} delay={0.08 + index * 0.06}>
-              <p className="max-w-lg text-[15px] leading-relaxed text-ink-soft">{paragraph}</p>
+              <p className="max-w-lg text-[0.9375rem] leading-relaxed text-ink-soft">{paragraph}</p>
             </Reveal>
           ))}
         </div>

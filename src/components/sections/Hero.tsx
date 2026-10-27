@@ -27,7 +27,7 @@ export default function Hero({ dict }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative isolate flex flex-col overflow-hidden bg-[linear-gradient(90deg,#eedccf,#e2c9b8)] pt-[68px] lg:h-[min(100svh,62vw)] lg:min-h-[680px] lg:justify-center lg:bg-none lg:pt-20"
+      className="relative isolate flex flex-col overflow-hidden bg-[linear-gradient(90deg,#eedccf,#e2c9b8)] pt-[4.25rem] lg:h-[min(100svh,62vw)] lg:min-h-[42.5rem] lg:justify-center lg:bg-none lg:pt-20"
     >
       <div className="container-lp relative z-10 pb-10 pt-12 sm:pt-16 lg:py-0">
         <div className="flex max-w-xl flex-col items-start gap-6 lg:max-w-[27rem] xl:max-w-[31rem]">
@@ -90,16 +90,17 @@ export default function Hero({ dict }: HeroProps) {
         <Reveal
           delay={0.4}
           y={20}
-          className="absolute right-5 top-4 sm:right-8 lg:right-[5%] lg:top-[20%]"
+          className="absolute right-5 top-4 sm:right-8 lg:right-[calc(max(0%,_(100%_-_82rem)_/_2)_+_2.5rem)] lg:top-[20%]"
         >
           <div className="rounded-sm bg-forest px-5 py-4 shadow-soft">
             <p className="font-display text-2xl italic text-cream">{dict.badgeValue}</p>
-            <p className="text-[11px] uppercase tracking-wide text-cream/70">{dict.badgeLabel}</p>
+            <p className="text-[0.6875rem] uppercase tracking-wide text-cream/70">{dict.badgeLabel}</p>
           </div>
         </Reveal>
       </div>
 
-      <div className="container-lp absolute inset-x-0 bottom-8 z-10 hidden [@media(min-width:1280px)_and_(min-height:821px)]:block">
+      {/* Only when the hero has spare height; the aspect cap accounts for the wide-screen scaling. */}
+      <div className="container-lp absolute inset-x-0 bottom-8 z-10 hidden [@media(min-width:1280px)_and_(min-height:821px)_and_(max-aspect-ratio:1754/1000)]:block">
         <a
           href="#propuesta"
           className="inline-flex items-center gap-2 text-xs text-ink-soft transition-colors hover:text-forest"
