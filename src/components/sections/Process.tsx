@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n/dictionaries/es";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -16,17 +17,37 @@ export default function Process({ dict }: ProcessProps) {
           <div aria-hidden className="absolute left-[27px] top-2 bottom-2 w-px bg-sand-dark sm:left-[31px]" />
           <ol className="flex flex-col gap-10">
             {dict.steps.map((step, index) => (
-              <Reveal key={step.number} delay={index * 0.05} y={16}>
-                <li className="relative flex gap-6 pl-0 sm:gap-8">
+              <li key={step.number}>
+                <Reveal delay={index * 0.05} y={16} className="relative flex gap-6 sm:gap-8">
                   <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-dark/40 bg-forest font-display text-lg italic text-gold-light sm:h-16 sm:w-16 sm:text-xl">
                     {step.number}
                   </span>
                   <div className="flex flex-col gap-1.5 pt-2">
                     <h3 className="text-lg font-semibold text-forest sm:text-xl">{step.title}</h3>
                     <p className="max-w-lg text-sm leading-relaxed text-ink-soft sm:text-[15px]">{step.description}</p>
+                    {step.views ? (
+                      <div className="mt-3 grid max-w-sm grid-cols-3 gap-2.5">
+                        {step.views.map((view) => (
+                          <figure key={view.image} className="flex flex-col gap-1.5">
+                            <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-sand">
+                              <Image
+                                src={view.image}
+                                alt={(step.viewsAlt ?? "").replace("{view}", view.label.toLowerCase())}
+                                fill
+                                sizes="(min-width: 640px) 120px, 28vw"
+                                className="object-cover"
+                              />
+                            </div>
+                            <figcaption className="text-[11px] uppercase tracking-wide text-ink-soft/80">
+                              {view.label}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>

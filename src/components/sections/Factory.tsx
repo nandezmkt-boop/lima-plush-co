@@ -11,13 +11,13 @@ export default function Factory({ dict }: FactoryProps) {
     <section id="fabrica" className="bg-sand/60 py-20 lg:py-28">
       <div className="container-lp grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal y={36} className="relative order-2 lg:order-1">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-soft sm:aspect-[5/4]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-soft sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image
-              src="/images/products/taller-leones-mesa.png"
+              src="/images/factory/taller-confeccion.jpg"
               alt={dict.imageAlt}
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"
-              className="object-cover"
+              className="object-cover object-[50%_60%]"
             />
           </div>
           <div className="mt-5 grid grid-cols-3 divide-x divide-sand-dark rounded-sm bg-cream shadow-card">

@@ -1,4 +1,4 @@
-import type { Dictionary } from "./es";
+import type { CaseStudy, Dictionary } from "./es";
 
 const en: Dictionary = {
   meta: {
@@ -24,41 +24,48 @@ const en: Dictionary = {
   },
   hero: {
     eyebrow: "Custom corporate plush toys",
-    headline: "Your brand, turned into something no one wants to forget.",
+    headline: {
+      lead: "Your brand,",
+      emphasis: "hugged",
+      tail: "forever",
+    },
     subheadline:
-      "We manufacture custom plush toys for companies, brands, institutions and events that want to turn their identity into a tangible, memorable experience.",
+      "We design and manufacture custom plush toys for companies, with your brand's colors, logo and personality.",
     ctaPrimary: "Request a quote",
     ctaSecondary: "View projects",
     trustLine: "Own production facility in Lima, Peru",
     trustSub: "Over 20 years of plush manufacturing, made by Peruvian hands",
-    imageAlt: "Custom plush toy wearing an embroidered Lima Plush Co. t-shirt",
+    imageAlt:
+      "Lima Plush Co. custom plush toys: a lion in overalls and bears wearing an embroidered t-shirt, hoodie, scarf and graduation gown",
+    badgeValue: "100%",
+    badgeLabel: "customizable",
     scrollHint: "See how we make it",
   },
   valueProps: {
-    eyebrow: "Why a corporate plush toy",
-    heading: "A brand object that doesn't end up in a drawer",
+    eyebrow: "Why choose a plush toy for your brand?",
+    heading: "Turn your brand into something people want to keep",
     intro:
-      "Most branded merchandise is forgotten within weeks. A well-made plush toy stays on a desk, a bed or a backpack for years — and every time someone sees it, they see your brand.",
+      "A plush toy isn't just another promotional item. It can become a keepsake that moves people and builds connection, staying with someone for a long time. They'll see it on their desk, in their bedroom or in a special place, keeping your brand present long after a campaign ends.",
     items: [
       {
-        title: "Brand recall that lasts",
+        title: "Your brand stays",
         description:
-          "No other promotional item stays this close to the people who receive it for so long. Your logo, colors and character remain visible long after the campaign ends.",
+          "Your logo, your colors and your character stop living only in a campaign and become part of an object that keeps your brand present in the life of whoever receives it.",
       },
       {
-        title: "Campaigns that become objects",
+        title: "A gift people remember",
         description:
-          "A one-time push — a launch, a season, an anniversary — turns into a physical piece people keep, display and photograph.",
+          "At a trade show, event, launch or promotion, a plush toy can become **a keepsake people will associate with a special moment of your brand.**",
       },
       {
-        title: "Events and promotions",
+        title: "Your character comes to life",
         description:
-          "Trade shows, activations, enrollment season, openings or matchdays: a corporate plush works as a gift, a prize and the star of the experience.",
+          "If your brand has a character, mascot or identity of its own, turning it into a plush toy lets people see it, touch it, hug it and take it home.",
       },
       {
-        title: "Real emotional connection",
+        title: "A connection that lasts",
         description:
-          "A logo on a pen gets forgotten. A character with a name, texture and expression builds a different kind of bond with your audience.",
+          "When a brand becomes part of someone's everyday life, it stops being a one-off experience. The plush toy keeps that connection alive long after the campaign.",
       },
     ],
   },
@@ -70,6 +77,7 @@ const en: Dictionary = {
     optionA: {
       tag: "Option A",
       title: "Customization on a base model",
+      imageAlt: "Blue plush elephant on a base model holding a heart balloon embroidered with the Lima Plush name",
       description:
         "We start from a quality base plush and adapt it to your identity: colors, a custom t-shirt or accessory, and your logo embroidered or printed.",
       minOrder: "Production from 120 units",
@@ -94,6 +102,7 @@ const en: Dictionary = {
     optionB: {
       tag: "Option B",
       title: "Custom character development",
+      imageAlt: "Plush lion designed from scratch, wearing a cap and overalls with an embroidered pocket",
       description:
         "We design and manufacture an exclusive plush for your brand: your own mascot or character, developed from sketch to an approved prototype.",
       minOrder: "Production from 500 units",
@@ -121,63 +130,113 @@ const en: Dictionary = {
     eyebrow: "Portfolio",
     heading: "Real projects, handmade in Lima",
     intro:
-      "Every plush toy you see here left our workshop for a different brand, school or club. This is what customization looks like when it's done right.",
-    items: [
+      "Every plush toy you see here was created for a different brand, concept and story. We design every project to measure, taking care of the details that bring your brand's identity to life.",
+    casesLabel: "Success stories",
+    caseLabel: "Case",
+    controls: {
+      previous: "Previous case",
+      next: "Next case",
+      goTo: "View case {n}",
+      slideOf: "{current} of {total}",
+    },
+    cases: [
       {
-        image: "/images/products/leon-camiseta-club.jpeg",
-        alt: "Custom plush lion wearing an official sports club jersey",
-        caption: "Sports mascot with an official club jersey and crest",
-        tag: "Sports",
+        client: "Leopold Studios",
+        location: "Lima, Peru",
+        project: "Brand character and promotional video",
+        quote:
+          "We wanted to create a character that represented Leopold Studios' identity, inspired by the Peruvian otorongo, that could become part of the experience of everyone who visits our studio. Lima Plush turned our idea into a unique piece with soul, and also created a promotional video for us in which the plush became the star. We ended up with a special piece to give our guests, making their time at the studio a truly lovely experience.",
+        image: "/images/cases/leopold-studios.jpg",
+        imageAlt: "Plush Peruvian otorongo jaguar wearing a black hoodie embroidered with the Leopold Studios logo",
       },
       {
-        image: "/images/products/osos-graduacion.jpg",
-        alt: "Custom plush bears with graduation cap and gown embroidered with names",
-        caption: "Graduation set with cap, gown and a name embroidered per student",
+        client: "Ludovico Helados",
+        location: "Madrid, Spain",
+        project: "Brand character for customers",
+        quote:
+          "We wanted to create a character that conveyed Ludovico's joy and spirit, so our customers could take a little piece of the brand home. We loved the result: the plush quickly became one of our customers' favorites and a special keepsake of Ludovico. Since we introduced it, our sales have grown by 10%, and the plush has become a much-loved part of our brand.",
+        highlight: { value: "+10%", label: "in sales since introducing the plush" },
+      },
+      {
+        client: "Xpecializa Consulting",
+        location: "Madrid, Spain",
+        project: "Christmas gift for the team",
+        quote:
+          "We wanted to create something special for our team this Christmas. As a technology consultancy, we wanted something that carried our identity and went beyond the traditional corporate gift. Lima Plush developed a fully customized plush for Xpecializa, from the colors and the hood to the pocket with our logo. The result is a character designed especially for our team and their families, and it will be part of our Christmas hampers.",
+        image: "/images/cases/xpecializa.jpg",
+        imageAlt: "Xpecializa plush bear with a blue helmet-style hood and an orange body with a logo-embroidered pocket",
+        detailImage: "/images/cases/xpecializa-propuesta.jpg",
+        detailImageAlt: "Final proposal sheet for the Xpecializa plush showing front, side and back views and brand colors",
+        detailLabel: "Design proposal",
+      },
+    ] as CaseStudy[],
+    more: {
+      heading: "More projects",
+      previous: "Previous projects",
+      next: "More projects",
+    },
+    items: [
+      {
+        image: "/images/products/leon-club-deportivo.jpg",
+        alt: "Plush lion wearing a striped sports club jersey with crest",
+        caption: "Mascot with the club's official jersey and crest",
+        tag: "Sports & clubs",
+      },
+      {
+        image: "/images/products/oso-graduado.jpg",
+        alt: "Plush bear with graduation cap, green gown, embroidered stole and diploma",
+        caption: "Graduation with cap, stole and embroidered name",
         tag: "Schools & universities",
       },
       {
-        image: "/images/products/oso-logo-lima-plush.png",
-        alt: "Plush bear wearing a t-shirt customized with an embroidered logo",
-        caption: "Custom t-shirt with logo embroidered in brand colors",
-        tag: "Companies",
+        image: "/images/products/oso-company-gifts.jpg",
+        alt: "Plush bear wearing a green hoodie embroidered with the words Company Gifts",
+        caption: "Hoodie embroidered with the brand's message",
+        tag: "Corporate gifts",
       },
       {
-        image: "/images/products/elefante-lila-frontal.png",
-        alt: "Custom plush elephant in lilac tone with a premium finish",
-        caption: "Original character development in brand-matching tone",
+        image: "/images/products/oso-partner-perks.jpg",
+        alt: "Plush bear wearing a gray t-shirt embroidered with the words Partner Perks",
+        caption: "Embroidered t-shirt for rewards programs",
+        tag: "Loyalty",
+      },
+      {
+        image: "/images/products/elefante-overol.jpg",
+        alt: "Lilac plush elephant wearing beige overalls with an embroidered pocket",
+        caption: "Overalls with embroidered pocket and custom details",
         tag: "Exclusive character",
       },
       {
-        image: "/images/products/leones-mascota-doble.jpeg",
-        alt: "Pair of plush lions with a custom bow during production",
-        caption: "Finishing and custom bow detail during assembly",
-        tag: "Workshop",
+        image: "/images/products/oso-bufanda.jpg",
+        alt: "Plush bear wearing a white scarf embroidered with the Lima Plush name",
+        caption: "Embroidered scarf as a brand accessory",
+        tag: "Accessories",
       },
       {
-        image: "/images/products/oso-love.jpg",
-        alt: "Plush bear holding a customizable embroidered heart",
-        caption: "Customizable embroidered accessory for seasonal campaigns",
+        image: "/images/products/elefante-rosa.jpg",
+        alt: "Pink plush elephant holding an embroidered heart balloon",
+        caption: "Heart balloon embroidered with the brand name",
         tag: "Campaigns",
       },
       {
-        image: "/images/products/mono-peluche.jpg",
-        alt: "Plush monkey with a premium soft finish",
-        caption: "Premium plush finish with reinforced stitching",
-        tag: "Quality",
+        image: "/images/products/oso-camiseta-blanca.jpg",
+        alt: "Hand holding a plush bear wearing a white t-shirt with an embroidered Lima Plush Co. logo",
+        caption: "T-shirt with full-color embroidered logo",
+        tag: "Companies",
       },
       {
-        image: "/images/products/osos-rosa-azul-love.jpg",
-        alt: "Pink and blue plush bears with an embroidered heart",
-        caption: "Color palette adapted to campaign identity",
-        tag: "Brands",
+        image: "/images/products/elefante-durazno-globo.jpg",
+        alt: "Peach-colored plush elephant holding an embroidered heart balloon",
+        caption: "The same model, in your brand's color",
+        tag: "Color palette",
       },
     ],
   },
   sectors: {
-    eyebrow: "Who we work with",
+    eyebrow: "We work with",
     heading: "A plush toy for every story a brand wants to tell",
     intro:
-      "We work with organizations that understand a well-thought-out object can say more than any brochure.",
+      "We create custom plush toys for companies, schools, hotels, clubs and other organizations that want to turn their identity into a one-of-a-kind plush.",
     items: [
       {
         title: "Companies",
@@ -201,7 +260,7 @@ const en: Dictionary = {
       },
       {
         title: "Marketing & advertising",
-        description: "Reliable volume production for agencies that need to deliver for their own clients.",
+        description: "We design and manufacture custom plush toys for campaigns, events and promotional activations.",
       },
       {
         title: "Sports & clubs",
@@ -233,6 +292,12 @@ const en: Dictionary = {
         number: "03",
         title: "Prototype",
         description: "Before producing at volume, we manufacture a physical sample so you can see and touch it.",
+        views: [
+          { image: "/images/products/prototipo-frontal.jpg", label: "Front" },
+          { image: "/images/products/prototipo-lateral.jpg", label: "Side" },
+          { image: "/images/products/prototipo-posterior.jpg", label: "Back" },
+        ],
+        viewsAlt: "Lilac elephant prototype, {view} view",
       },
       {
         number: "04",
@@ -260,28 +325,74 @@ const en: Dictionary = {
     eyebrow: "About us",
     heading: "Our sewing workshop",
     paragraphs: [
-      "Lima Plush Co. was born from over 20 years of plush manufacturing experience in Peru, with our own production that for years supplied vendors at Lima's Mercado Central.",
-      "Every plush toy passes through Peruvian hands: families from our community who sew, fill and inspect each piece with the same handcrafted care our workshop has always worked with.",
-      "We combine that experience with a structure built for volume orders, without losing the quality control of a workshop that knows every stitch of what it produces.",
+      "Lima Plush Co. brings together over 20 years of plush manufacturing experience in Peru, with our own production that for years supplied major vendors at Lima's Mercado Central, distributing to cities across Peru.",
+      "Every plush toy passes through Peruvian hands: families from our community who sew, fill and inspect each piece, caring for every detail along the way. Through our work we help create job opportunities for Peruvian families and keep the craft of sewing alive.",
+      "We combine that experience with a structure ready for volume orders, maintaining quality control and care for every piece throughout the entire process.",
     ],
     stats: [
       { value: "20+", label: "years of textile experience" },
       { value: "120+", label: "units, minimum order" },
       { value: "100%", label: "own production in Lima" },
     ],
-    imageAlt: "Work table at the Lima Plush Co. sewing workshop with plush toys in progress",
+    imageAlt: "Plush lions being sewn on the work table at the Lima Plush Co. workshop",
   },
   video: {
     eyebrow: "Factory videos",
-    heading: "How a Lima Plush Co. plush toy is made",
+    heading: "How we make your order at Lima Plush Co.",
     description:
-      "We're preparing the video footage of our machines, sewing, filling and quality control for every piece. When a client sees the full process, trust in the product is on a different level.",
+      "Discover the process behind every Lima Plush Co. plush toy: from sewing and stuffing to finishing and quality control of every piece.",
     placeholderLabel: "Workshop video — coming soon",
-    note: "Want to see the process sooner? Reach out and we'll set up a video call or workshop visit.",
+    note: "Soon you'll be able to watch how we work and how we turn each design into an order ready for delivery.",
+    posterAlt: "Batch of plush bears with red hearts at the Lima Plush Co. workshop",
+    production: {
+      title: "From our workshop",
+      items: [
+        {
+          image: "/images/factory/osos-por-mayor.jpg",
+          alt: "Dozens of plush bears piled up in the workshop, ready to be customized",
+          caption: "A batch of bears ready to be customized",
+        },
+        {
+          image: "/images/factory/osos-corbata-por-mayor.jpg",
+          alt: "Wholesale order of plush bears wearing black t-shirts and ties",
+          caption: "Wholesale order with tie and t-shirt",
+        },
+        {
+          image: "/images/factory/osos-graduacion-por-mayor.jpg",
+          alt: "Graduation plush bears with caps and purple gowns embroidered with names",
+          caption: "Graduation bears with each student's name",
+        },
+      ],
+    },
+  },
+  packaging: {
+    eyebrow: "Packaging",
+    heading: "Your plush, presented to match your brand",
+    paragraph:
+      "Packaging is part of the experience too. We create custom presentations so your plush reaches your clients, guests or team members as a complete brand piece.",
+    items: [
+      {
+        title: "Branded boxes and bags",
+        description: "Presentations with your logo and colors, ready to hand out or ship.",
+      },
+      {
+        title: "Custom tags and cards",
+        description: "A message from your brand that travels with the plush, straight to whoever receives it.",
+      },
+      {
+        title: "Designed for every occasion",
+        description:
+          "Welcome kits, event gifts, Christmas hampers or awards: we adapt the presentation to the moment.",
+      },
+    ],
+    cta: "Ask about packaging options",
   },
   specs: {
     eyebrow: "Specifications",
     heading: "Quality built to last",
+    image: "/images/factory/tejido-terciopelo.jpg",
+    imageAlt: "Soft blue velvet fabric used to make plush toys",
+    imageCaption: "Soft-touch velvet, one of our materials",
     items: [
       {
         title: "Material",

@@ -9,14 +9,14 @@ type SolutionsProps = {
 };
 
 const IMAGES = {
-  optionA: "/images/products/oso-logo-lima-plush.png",
-  optionB: "/images/products/elefante-lila-frontal.png",
+  optionA: "/images/products/elefante-azul-globo-4x3.jpg",
+  optionB: "/images/products/leon-overol-4x3.jpg",
 };
 
 export default function Solutions({ dict }: SolutionsProps) {
   const options = [
-    { ...dict.optionA, image: IMAGES.optionA, imageAlt: dict.optionA.title },
-    { ...dict.optionB, image: IMAGES.optionB, imageAlt: dict.optionB.title },
+    { ...dict.optionA, image: IMAGES.optionA },
+    { ...dict.optionB, image: IMAGES.optionB },
   ];
 
   return (
@@ -27,13 +27,13 @@ export default function Solutions({ dict }: SolutionsProps) {
         <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-10">
           {options.map((option, index) => (
             <Reveal key={option.title} delay={index * 0.1} className="flex flex-col overflow-hidden rounded-sm bg-cream shadow-card">
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <div className="group relative aspect-[4/3] w-full overflow-hidden">
                 <Image
                   src={option.image}
                   alt={option.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 46vw, 92vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-4 top-4 rounded-sm bg-forest px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-cream">
                   {option.tag}

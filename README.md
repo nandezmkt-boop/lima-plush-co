@@ -34,7 +34,15 @@ Define `NEXT_PUBLIC_WHATSAPP_NUMBER` con el número en formato internacional, so
 
 ### Imágenes
 
-Las imágenes reales del catálogo y del taller están en `public/images/products/` y el logo en `public/images/brand/`. Para añadir o sustituir una imagen, coloca el archivo en esa carpeta y actualiza la ruta correspondiente en el componente de la sección (`src/components/sections/*`) o en el diccionario de la galería (`src/lib/i18n/dictionaries/es.ts` y `en.ts`, objeto `gallery.items`).
+Las imágenes viven en `public/images/`, organizadas por uso:
+
+- `hero/` — foto de portada. `portada-wide.jpg` es la misma foto con el fondo de estudio extendido hacia la izquierda y arriba, para que en escritorio el texto quede sobre fondo limpio a cualquier proporción de pantalla.
+- `cases/` — fotos de los casos de éxito del portafolio.
+- `products/` — catálogo, opciones A/B (versiones `-4x3`, con el fondo ampliado para que el peluche se vea entero) y vistas del prototipo.
+- `factory/` — taller, producción en volumen y materiales.
+- `brand/` — archivos originales del logo. En la web el logo se dibuja en SVG desde `src/components/ui/Logo.tsx`.
+
+Para añadir o sustituir una imagen, coloca el archivo en la carpeta correspondiente y actualiza la ruta en el diccionario (`src/lib/i18n/dictionaries/es.ts` y `en.ts`) o en el componente de la sección (`src/components/sections/*`). Los casos de éxito están en `gallery.cases` (un caso sin `image` se muestra con un panel de marca) y el carrusel de proyectos en `gallery.items`.
 
 ### Idiomas
 

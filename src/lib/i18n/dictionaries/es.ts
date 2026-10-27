@@ -1,3 +1,16 @@
+export type CaseStudy = {
+  client: string;
+  location: string;
+  project: string;
+  quote: string;
+  image?: string;
+  imageAlt?: string;
+  detailImage?: string;
+  detailImageAlt?: string;
+  detailLabel?: string;
+  highlight?: { value: string; label: string };
+};
+
 const es = {
   meta: {
     title: "Lima Plush Co. — Peluches corporativos personalizados",
@@ -21,42 +34,49 @@ const es = {
     langSwitchLabel: "English",
   },
   hero: {
-    eyebrow: "Peluche corporativo personalizado",
-    headline: "Tu marca, convertida en algo que nadie quiere olvidar.",
+    eyebrow: "Peluches corporativos personalizados",
+    headline: {
+      lead: "Tu marca,",
+      emphasis: "abrazada",
+      tail: "por siempre",
+    },
     subheadline:
-      "Fabricamos peluches personalizados para empresas, marcas, instituciones y eventos que buscan convertir su identidad en una experiencia tangible y memorable.",
+      "Diseñamos y fabricamos peluches personalizados para empresas, con los colores, logo y personalidad de tu marca.",
     ctaPrimary: "Solicitar presupuesto",
     ctaSecondary: "Ver proyectos",
     trustLine: "Producción propia en Lima, Perú",
     trustSub: "Más de 20 años fabricando peluches con manos peruanas",
-    imageAlt: "Peluche personalizado con camiseta bordada Lima Plush Co.",
+    imageAlt:
+      "Peluches personalizados Lima Plush Co.: león con overol, osos con camiseta, capucha, bufanda y toga de graduación bordadas",
+    badgeValue: "100%",
+    badgeLabel: "personalizable",
     scrollHint: "Descubre cómo lo hacemos",
   },
   valueProps: {
-    eyebrow: "Por qué un peluche corporativo",
-    heading: "Un objeto de marca que no termina en un cajón",
+    eyebrow: "¿Por qué elegir un peluche para tu marca?",
+    heading: "Convierte tu marca en algo que las personas quieren conservar",
     intro:
-      "La mayoría del merchandising se olvida en semanas. Un peluche bien hecho se queda años en un escritorio, una cama o una mochila, y cada vez que alguien lo ve, ve tu marca.",
+      "Un peluche no es un objeto promocional más. Puede convertirse en un recuerdo capaz de emocionar y conectar, acompañando a una persona durante mucho tiempo. Lo podrá ver en su escritorio, en su habitación o en un lugar especial, haciendo que tu marca siga presente mucho después de una campaña.",
     items: [
       {
-        title: "Recordación de marca",
+        title: "Tu marca permanece",
         description:
-          "Ningún otro objeto promocional convive tanto tiempo con quien lo recibe. Tu logo, tus colores y tu personaje quedan presentes mucho después de terminada la campaña.",
+          "Tu logo, tus colores y tu personaje dejan de estar solo en una campaña y pasan a formar parte de un objeto que mantiene tu marca presente en la vida de quien lo recibe.",
       },
       {
-        title: "Campañas que se vuelven objeto",
+        title: "Un regalo que genera recuerdo",
         description:
-          "Una acción puntual —un lanzamiento, una temporada, un aniversario— se convierte en algo físico que las personas conservan, muestran y fotografían.",
+          "En una feria, evento, lanzamiento o promoción, un peluche puede convertirse en **un recuerdo que las personas asociarán con un momento especial de tu marca.**",
       },
       {
-        title: "Eventos y promociones",
+        title: "Tu personaje cobra vida",
         description:
-          "Ferias, activaciones, matrículas, inauguraciones o partidos: el peluche corporativo funciona como regalo, como premio y como protagonista de la experiencia.",
+          "Si tu marca tiene un personaje, mascota o identidad propia, convertirlo en peluche permite que las personas puedan verlo, tocarlo, abrazarlo y llevarse consigo.",
       },
       {
-        title: "Conexión emocional real",
+        title: "Una conexión que continúa",
         description:
-          "Un logo en un bolígrafo se olvida. Un personaje con nombre propio, textura y expresión genera un vínculo distinto con tu público.",
+          "Cuando una marca consigue formar parte de la vida cotidiana de una persona, deja de ser solo una experiencia puntual. El peluche mantiene esa conexión presente mucho después de la campaña.",
       },
     ],
   },
@@ -68,6 +88,7 @@ const es = {
     optionA: {
       tag: "Opción A",
       title: "Personalización sobre modelo base",
+      imageAlt: "Elefante de peluche azul sobre modelo base con globo de corazón bordado con el nombre Lima Plush",
       description:
         "Partimos de un peluche base de calidad y lo adaptamos a tu identidad: colores, camiseta o accesorio, y tu logo bordado o estampado.",
       minOrder: "Producción desde 120 unidades",
@@ -92,6 +113,7 @@ const es = {
     optionB: {
       tag: "Opción B",
       title: "Desarrollo de personaje desde cero",
+      imageAlt: "León de peluche diseñado desde cero, con gorra y overol con bolsillo bordado",
       description:
         "Diseñamos y fabricamos un peluche exclusivo para tu marca: una mascota o personaje propio, desarrollado desde el boceto hasta el prototipo aprobado.",
       minOrder: "Producción desde 500 unidades",
@@ -119,63 +141,113 @@ const es = {
     eyebrow: "Portafolio",
     heading: "Proyectos reales, hechos a mano en Lima",
     intro:
-      "Cada peluche que ves aquí salió de nuestro taller para una marca, un colegio o un club distinto. Así se ve la personalización cuando se hace bien.",
-    items: [
+      "Cada peluche que ves aquí fue creado para una marca, un concepto y una historia diferente. Diseñamos cada proyecto a medida, cuidando los detalles que hacen que la identidad de tu marca cobre vida.",
+    casesLabel: "Casos de éxito",
+    caseLabel: "Caso",
+    controls: {
+      previous: "Caso anterior",
+      next: "Caso siguiente",
+      goTo: "Ver caso {n}",
+      slideOf: "{current} de {total}",
+    },
+    cases: [
       {
-        image: "/images/products/leon-camiseta-club.jpeg",
-        alt: "León de peluche personalizado con camiseta oficial de club deportivo",
-        caption: "Mascota deportiva con camiseta e insignia oficial del club",
-        tag: "Deporte",
+        client: "Leopold Studios",
+        location: "Lima, Perú",
+        project: "Personaje de marca y vídeo promocional",
+        quote:
+          "Queríamos crear un personaje que representara la identidad de Leopold Studios, inspirado en el otorongo peruano, y que pudiera formar parte de la experiencia de quienes visitan nuestro estudio. Lima Plush convirtió nuestra idea en una pieza única, con alma, y además creó para nosotros un vídeo promocional en el que el peluche se convirtió en el protagonista. Conseguimos una pieza especial para entregar a nuestros invitados y hacer que su paso por el estudio fuera una experiencia muy bonita.",
+        image: "/images/cases/leopold-studios.jpg",
+        imageAlt: "Peluche de otorongo peruano con polera negra bordada con el logo de Leopold Studios",
       },
       {
-        image: "/images/products/osos-graduacion.jpg",
-        alt: "Osos de peluche personalizados con birrete y toga bordados con nombres para graduación",
-        caption: "Set de graduación con birrete, toga y nombre bordado por alumno",
+        client: "Ludovico Helados",
+        location: "Madrid, España",
+        project: "Personaje de marca para clientes",
+        quote:
+          "Queríamos crear un personaje que transmitiera la alegría y el espíritu de Ludovico, y que nuestros clientes pudieran llevarse un pedacito de la marca a casa. El resultado nos encantó: el peluche se convirtió rápidamente en uno de los favoritos de nuestros clientes y en un recuerdo especial de Ludovico. Desde que lo incorporamos, nuestras ventas aumentaron un 10% y el peluche se convirtió en una parte muy querida de nuestra marca.",
+        highlight: { value: "+10%", label: "en ventas desde que incorporaron el peluche" },
+      },
+      {
+        client: "Xpecializa Consulting",
+        location: "Madrid, España",
+        project: "Regalo navideño para el equipo",
+        quote:
+          "Queríamos crear un detalle especial para nuestro equipo esta Navidad. Somos una consultora tecnológica, por eso queríamos algo que llevara nuestra identidad y que fuera más allá del regalo corporativo tradicional. Lima Plush desarrolló un peluche completamente personalizado para Xpecializa, desde los colores y la capucha hasta el bolsillo con nuestro logo. El resultado es un personaje pensado especialmente para nuestro equipo y sus familias, y que formará parte de nuestras canastas navideñas.",
+        image: "/images/cases/xpecializa.jpg",
+        imageAlt: "Osito de peluche Xpecializa con capucha azul tipo casco y cuerpo naranja con bolsillo bordado con el logo",
+        detailImage: "/images/cases/xpecializa-propuesta.jpg",
+        detailImageAlt: "Ficha de propuesta final del peluche Xpecializa con vistas frontal, lateral y trasera y colores corporativos",
+        detailLabel: "Propuesta de diseño",
+      },
+    ] as CaseStudy[],
+    more: {
+      heading: "Más proyectos",
+      previous: "Proyectos anteriores",
+      next: "Más proyectos",
+    },
+    items: [
+      {
+        image: "/images/products/leon-club-deportivo.jpg",
+        alt: "León de peluche con camiseta a rayas e insignia de club deportivo",
+        caption: "Mascota con camiseta e insignia oficial del club",
+        tag: "Deporte y clubes",
+      },
+      {
+        image: "/images/products/oso-graduado.jpg",
+        alt: "Oso de peluche con birrete, toga verde, estola bordada y diploma",
+        caption: "Graduación con birrete, estola y nombre bordado",
         tag: "Colegios y universidades",
       },
       {
-        image: "/images/products/oso-logo-lima-plush.png",
-        alt: "Oso de peluche con camiseta personalizada con logo bordado",
-        caption: "Camiseta personalizada con logo bordado a color de marca",
-        tag: "Empresas",
+        image: "/images/products/oso-company-gifts.jpg",
+        alt: "Oso de peluche con capucha verde bordada con el texto Company Gifts",
+        caption: "Capucha bordada con el mensaje de la marca",
+        tag: "Regalo corporativo",
       },
       {
-        image: "/images/products/elefante-lila-frontal.png",
-        alt: "Elefante de peluche personalizado en tono lila con acabado premium",
-        caption: "Desarrollo de personaje propio en tono de marca",
+        image: "/images/products/oso-partner-perks.jpg",
+        alt: "Oso de peluche con camiseta gris bordada con el texto Partner Perks",
+        caption: "Camiseta bordada para programas de beneficios",
+        tag: "Fidelización",
+      },
+      {
+        image: "/images/products/elefante-overol.jpg",
+        alt: "Elefante de peluche lila con overol beige y bolsillo bordado",
+        caption: "Overol con bolsillo bordado y detalles a medida",
         tag: "Personaje exclusivo",
       },
       {
-        image: "/images/products/leones-mascota-doble.jpeg",
-        alt: "Par de leones de peluche con moño personalizado en proceso de confección",
-        caption: "Detalle de acabado y moño personalizado en confección",
-        tag: "Taller",
+        image: "/images/products/oso-bufanda.jpg",
+        alt: "Oso de peluche con bufanda blanca bordada con el nombre Lima Plush",
+        caption: "Bufanda bordada como accesorio de marca",
+        tag: "Accesorios",
       },
       {
-        image: "/images/products/oso-love.jpg",
-        alt: "Oso de peluche sosteniendo un corazón bordado personalizable",
-        caption: "Accesorio bordado personalizable para campañas de temporada",
+        image: "/images/products/elefante-rosa.jpg",
+        alt: "Elefante de peluche rosa con globo de corazón bordado",
+        caption: "Globo-corazón bordado con el nombre de la marca",
         tag: "Campañas",
       },
       {
-        image: "/images/products/mono-peluche.jpg",
-        alt: "Mono de peluche con acabado suave premium",
-        caption: "Acabado en plush premium con costura reforzada",
-        tag: "Calidad",
+        image: "/images/products/oso-camiseta-blanca.jpg",
+        alt: "Mano sosteniendo un oso de peluche con camiseta blanca y logo Lima Plush Co. bordado",
+        caption: "Camiseta con logo bordado a color",
+        tag: "Empresas",
       },
       {
-        image: "/images/products/osos-rosa-azul-love.jpg",
-        alt: "Pareja de osos de peluche en rosa y azul con corazón bordado",
-        caption: "Paleta de color adaptada a identidad de campaña",
-        tag: "Marcas",
+        image: "/images/products/elefante-durazno-globo.jpg",
+        alt: "Elefante de peluche color durazno con globo de corazón bordado",
+        caption: "El mismo modelo, en el tono de tu marca",
+        tag: "Paleta de color",
       },
     ],
   },
   sectors: {
-    eyebrow: "A quién servimos",
+    eyebrow: "Trabajamos con",
     heading: "Un peluche para cada historia que una marca quiera contar",
     intro:
-      "Trabajamos con organizaciones que entienden que un objeto bien pensado puede decir más que cualquier folleto.",
+      "Creamos peluches personalizados para empresas, colegios, hoteles, clubes y otras organizaciones que quieren convertir su identidad en un peluche único.",
     items: [
       {
         title: "Empresas",
@@ -199,7 +271,7 @@ const es = {
       },
       {
         title: "Marketing y publicidad",
-        description: "Producción confiable en volumen para agencias que necesitan cumplir con sus clientes.",
+        description: "Diseñamos y fabricamos peluches personalizados para campañas, eventos y acciones promocionales.",
       },
       {
         title: "Deporte y clubes",
@@ -231,6 +303,12 @@ const es = {
         number: "03",
         title: "Prototipo",
         description: "Antes de producir en volumen, fabricamos una muestra física para que la veas y la toques.",
+        views: [
+          { image: "/images/products/prototipo-frontal.jpg", label: "Frontal" },
+          { image: "/images/products/prototipo-lateral.jpg", label: "Lateral" },
+          { image: "/images/products/prototipo-posterior.jpg", label: "Posterior" },
+        ],
+        viewsAlt: "Prototipo de elefante lila, vista {view}",
       },
       {
         number: "04",
@@ -258,28 +336,74 @@ const es = {
     eyebrow: "Sobre nosotros",
     heading: "Nuestro taller de confección",
     paragraphs: [
-      "Lima Plush Co. nace de más de 20 años de experiencia en fabricación de peluches en Perú, con producción propia que durante años abasteció a comerciantes del Mercado Central de Lima.",
-      "Cada peluche pasa por manos peruanas: familias de nuestra comunidad que cosen, rellenan y revisan cada pieza con el mismo cuidado artesanal con el que siempre se ha trabajado en nuestro taller.",
-      "Combinamos esa experiencia con una estructura pensada para pedidos en volumen, sin perder el control de calidad de un taller que conoce cada puntada de lo que produce.",
+      "Lima Plush Co. reúne más de 20 años de experiencia en la fabricación de peluches en Perú, con producción propia que durante años abasteció a importantes comerciantes del Mercado Central de Lima, con distribución a distintas ciudades del Perú.",
+      "Cada peluche pasa por manos peruanas: familias de nuestra comunidad que cosen, rellenan y revisan cada pieza, cuidando cada detalle durante el proceso. Con nuestro trabajo contribuimos a generar oportunidades de empleo para familias peruanas y a mantener vivo el oficio de la confección.",
+      "Combinamos esa experiencia con una estructura preparada para pedidos en volumen, manteniendo el control de calidad y el cuidado de cada pieza durante todo el proceso.",
     ],
     stats: [
       { value: "20+", label: "años de experiencia textil" },
       { value: "120+", label: "unidades, pedido mínimo" },
       { value: "100%", label: "producción propia en Lima" },
     ],
-    imageAlt: "Mesa de trabajo del taller de confección de Lima Plush Co. con peluches en proceso",
+    imageAlt: "Leones de peluche en confección sobre la mesa de trabajo del taller de Lima Plush Co.",
   },
   video: {
     eyebrow: "Vídeos de fábrica",
-    heading: "Así se hace un peluche Lima Plush Co.",
+    heading: "Así hacemos tu pedido en Lima Plush Co.",
     description:
-      "Estamos preparando el registro audiovisual de nuestras máquinas, la costura, el relleno y el control de calidad de cada pieza. Cuando un cliente ve el proceso completo, la confianza en el producto es distinta.",
+      "Conoce el proceso detrás de cada peluche Lima Plush Co.: desde la confección y el relleno hasta los acabados y el control de calidad de cada pieza.",
     placeholderLabel: "Vídeo del taller — próximamente",
-    note: "¿Quieres ver el proceso antes? Escríbenos y coordinamos una videollamada o visita al taller.",
+    note: "Muy pronto podrás ver en vídeo cómo trabajamos y cómo convertimos cada diseño en un pedido listo para entregar.",
+    posterAlt: "Lote de osos de peluche con corazones rojos en el taller de Lima Plush Co.",
+    production: {
+      title: "Desde nuestro taller",
+      items: [
+        {
+          image: "/images/factory/osos-por-mayor.jpg",
+          alt: "Decenas de osos de peluche apilados en el taller, listos para personalizar",
+          caption: "Lote de osos listos para personalizar",
+        },
+        {
+          image: "/images/factory/osos-corbata-por-mayor.jpg",
+          alt: "Pedido al por mayor de osos de peluche con camiseta negra y corbata",
+          caption: "Pedido al por mayor con corbata y camiseta",
+        },
+        {
+          image: "/images/factory/osos-graduacion-por-mayor.jpg",
+          alt: "Osos de peluche de graduación con birrete y toga morada con nombres bordados",
+          caption: "Graduación con el nombre de cada alumno",
+        },
+      ],
+    },
+  },
+  packaging: {
+    eyebrow: "Packaging",
+    heading: "El peluche, presentado a la altura de tu marca",
+    paragraph:
+      "El packaging también forma parte de la experiencia. Creamos presentaciones personalizadas para que tu peluche llegue a las manos de tus clientes, invitados o colaboradores como una pieza de marca completa.",
+    items: [
+      {
+        title: "Cajas y bolsas con tu marca",
+        description: "Presentaciones con tu logo y tus colores, listas para entregar en mano o enviar.",
+      },
+      {
+        title: "Etiquetas y tarjetas personalizadas",
+        description: "Un mensaje de tu marca que acompaña al peluche y llega directamente a quien lo recibe.",
+      },
+      {
+        title: "Pensado para cada ocasión",
+        description:
+          "Kits de bienvenida, regalos de evento, canastas navideñas o premios: adaptamos la presentación al momento.",
+      },
+    ],
+    cta: "Consultar opciones de packaging",
   },
   specs: {
     eyebrow: "Especificaciones",
     heading: "Calidad pensada para durar",
+    image: "/images/factory/tejido-terciopelo.jpg",
+    imageAlt: "Tela de terciopelo azul suave utilizada en la confección de peluches",
+    imageCaption: "Terciopelo de tacto suave, uno de nuestros materiales",
     items: [
       {
         title: "Material",

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/es";
 
@@ -40,21 +40,11 @@ export default function Header({ locale, nav }: HeaderProps) {
       }`}
     >
       <div className="container-lp flex h-[68px] items-center justify-between lg:h-20">
-        <Link href={`/${locale}#inicio`} className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Image
-            src="/images/brand/logo-icon.png"
-            alt="Lima Plush Co."
-            width={40}
-            height={40}
-            className="h-8 w-8 lg:h-9 lg:w-9"
-            priority
-          />
-          <span className="font-display text-[15px] font-semibold tracking-tight text-forest lg:text-base">
-            LIMA PLUSH CO.
-          </span>
+        <Link href={`/${locale}#inicio`} onClick={() => setOpen(false)}>
+          <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 xl:flex 2xl:gap-8">
           {nav.links.map((link) => (
             <a
               key={link.href}
@@ -66,7 +56,7 @@ export default function Header({ locale, nav }: HeaderProps) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-4 xl:flex 2xl:gap-5">
           <Link
             href={`/${otherLocale}`}
             className="text-[13px] font-semibold uppercase tracking-wide text-ink-soft transition-colors hover:text-forest"
@@ -83,14 +73,14 @@ export default function Header({ locale, nav }: HeaderProps) {
           aria-label="Menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center text-forest lg:hidden"
+          className="flex h-10 w-10 items-center justify-center text-forest xl:hidden"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {open ? (
-        <div className="border-t border-sand-dark bg-cream px-5 pb-8 pt-4 lg:hidden">
+        <div className="border-t border-sand-dark bg-cream px-5 pb-8 pt-4 sm:px-8 xl:hidden">
           <nav className="flex flex-col gap-1">
             {nav.links.map((link) => (
               <a

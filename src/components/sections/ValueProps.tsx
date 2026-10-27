@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/lib/i18n/dictionaries/es";
 import Reveal from "@/components/ui/Reveal";
+import Emphasis from "@/components/ui/Emphasis";
 
 type ValuePropsProps = {
   dict: Dictionary["valueProps"];
@@ -12,7 +13,7 @@ export default function ValueProps({ dict }: ValuePropsProps) {
         <div className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start">
           <Reveal className="flex flex-col gap-5">
             <span className="eyebrow">{dict.eyebrow}</span>
-            <h2 className="max-w-md text-3xl leading-[1.1] sm:text-4xl">{dict.heading}</h2>
+            <h2 className="max-w-md text-3xl leading-[1.1] sm:text-4xl lg:text-[2.75rem]">{dict.heading}</h2>
             <p className="max-w-md text-base leading-relaxed text-ink-soft">{dict.intro}</p>
           </Reveal>
         </div>
@@ -24,7 +25,9 @@ export default function ValueProps({ dict }: ValuePropsProps) {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3 className="text-xl font-semibold text-forest">{item.title}</h3>
-              <p className="text-[15px] leading-relaxed text-ink-soft">{item.description}</p>
+              <p className="text-[15px] leading-relaxed text-ink-soft">
+                <Emphasis text={item.description} />
+              </p>
             </Reveal>
           ))}
         </div>

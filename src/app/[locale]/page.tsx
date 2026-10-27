@@ -11,6 +11,7 @@ import Sectors from "@/components/sections/Sectors";
 import Process from "@/components/sections/Process";
 import Factory from "@/components/sections/Factory";
 import VideoShowcase from "@/components/sections/VideoShowcase";
+import Packaging from "@/components/sections/Packaging";
 import Specs from "@/components/sections/Specs";
 import ClosingStatement from "@/components/sections/ClosingStatement";
 import QuoteFormSection from "@/components/sections/QuoteFormSection";
@@ -67,6 +68,7 @@ export default async function LocalePage({ params }: PageProps) {
       <Process dict={dict.process} />
       <Factory dict={dict.factory} />
       <VideoShowcase dict={dict.video} />
+      <Packaging dict={dict.packaging} />
       <Specs dict={dict.specs} />
       <ClosingStatement dict={dict.closing} />
       <QuoteFormSection dict={dict.form} whatsappMessage={dict.whatsapp.defaultMessage} locale={locale} />

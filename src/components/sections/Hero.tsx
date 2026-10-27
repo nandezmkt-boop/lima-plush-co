@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import type { Dictionary } from "@/lib/i18n/dictionaries/es";
 import Reveal from "@/components/ui/Reveal";
@@ -7,32 +7,46 @@ type HeroProps = {
   dict: Dictionary["hero"];
 };
 
-export default function Hero({ dict }: HeroProps) {
-  return (
-    <section id="inicio" className="relative overflow-hidden pt-[68px] lg:pt-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-gold/10 blur-3xl lg:h-[680px] lg:w-[680px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-1/3 h-[380px] w-[380px] rounded-full bg-forest/5 blur-3xl"
-      />
+// Desktop uses a widened copy of the cover photo (backdrop extended left and up)
+// so the plush group always sits to the right of the copy; smaller screens get
+// the original framing stacked under the text.
+function heroPicture(alt: string) {
+  const common = { alt, sizes: "100vw", quality: 80 };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({ ...common, src: "/images/hero/portada-wide.jpg", width: 2400, height: 1160 });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({ ...common, src: "/images/hero/portada.jpg", width: 1672, height: 940 });
+  return { desktop, mobile, rest };
+}
 
-      <div className="container-lp relative grid gap-14 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:py-20">
-        <div className="flex flex-col items-start gap-7">
+export default function Hero({ dict }: HeroProps) {
+  const { desktop, mobile, rest } = heroPicture(dict.imageAlt);
+
+  return (
+    <section
+      id="inicio"
+      className="relative isolate flex flex-col overflow-hidden bg-[linear-gradient(90deg,#eedccf,#e2c9b8)] pt-[68px] lg:h-[min(100svh,62vw)] lg:min-h-[680px] lg:justify-center lg:bg-none lg:pt-20"
+    >
+      <div className="container-lp relative z-10 pb-10 pt-12 sm:pt-16 lg:py-0">
+        <div className="flex max-w-xl flex-col items-start gap-6 lg:max-w-[27rem] xl:max-w-[31rem]">
           <Reveal>
             <span className="eyebrow">{dict.eyebrow}</span>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h1 className="max-w-xl text-[2.6rem] leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[3.75rem]">
-              {dict.headline}
+            <h1 className="text-[3.1rem] leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-[4.2rem] xl:text-[5.4rem]">
+              <span className="block">{dict.headline.lead}</span>
+              <span className="block italic text-forest">{dict.headline.emphasis}</span>
+              <span className="block">{dict.headline.tail}</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="max-w-lg text-lg leading-relaxed text-ink-soft">{dict.subheadline}</p>
+            <p className="max-w-md text-lg leading-relaxed text-ink-soft lg:max-w-[23rem] xl:max-w-md">
+              {dict.subheadline}
+            </p>
           </Reveal>
 
           <Reveal delay={0.24} className="flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
@@ -40,42 +54,58 @@ export default function Hero({ dict }: HeroProps) {
               {dict.ctaPrimary}
               <ArrowRight size={16} />
             </a>
-            <a href="#proyectos" className="btn btn-secondary">
+            <a href="#proyectos" className="btn btn-secondary bg-cream/40 backdrop-blur-[2px]">
               {dict.ctaSecondary}
             </a>
           </Reveal>
 
-          <Reveal delay={0.32} className="flex items-center gap-3 pt-3">
+          <Reveal delay={0.32} className="flex items-center gap-3 pt-2">
             <span className="h-px w-10 bg-gold-dark/60" />
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-forest">{dict.trustLine}</span>
-              <span className="text-xs text-ink-soft/80">{dict.trustSub}</span>
+              <span className="text-xs text-ink-soft">{dict.trustSub}</span>
             </div>
           </Reveal>
         </div>
+      </div>
 
-        <Reveal delay={0.2} y={40} className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-sand shadow-soft">
-            <Image
-              src="/images/products/oso-logo-lima-plush.png"
-              alt={dict.imageAlt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 42vw, 88vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-sm bg-forest px-5 py-4 shadow-soft sm:block">
-            <p className="font-display text-2xl italic text-cream">100%</p>
-            <p className="text-[11px] uppercase tracking-wide text-cream/70">personalizable</p>
+      <div className="relative aspect-[4/3] w-full sm:aspect-[16/9] lg:absolute lg:inset-0 lg:-z-10 lg:aspect-auto">
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={desktop} />
+          <source srcSet={mobile} />
+          <img
+            {...rest}
+            alt={dict.imageAlt}
+            fetchPriority="high"
+            loading="eager"
+            className="absolute inset-0 h-full w-full object-cover object-[72%_50%] [mask-image:linear-gradient(to_bottom,transparent,#000_28%)] lg:object-right-bottom lg:[mask-image:none]"
+          />
+        </picture>
+        {/* Keeps the copy legible where the plush group drifts under it on narrower desktops. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgb(238_220_208/0.92)_0%,rgb(238_220_208/0.7)_30%,rgb(238_220_208/0)_52%)] lg:block"
+        />
+
+        <Reveal
+          delay={0.4}
+          y={20}
+          className="absolute right-5 top-4 sm:right-8 lg:right-[5%] lg:top-[20%]"
+        >
+          <div className="rounded-sm bg-forest px-5 py-4 shadow-soft">
+            <p className="font-display text-2xl italic text-cream">{dict.badgeValue}</p>
+            <p className="text-[11px] uppercase tracking-wide text-cream/70">{dict.badgeLabel}</p>
           </div>
         </Reveal>
       </div>
 
-      <div className="hidden justify-center pb-10 lg:flex">
-        <a href="#propuesta" className="flex flex-col items-center gap-2 text-xs text-ink-soft/70 transition-colors hover:text-forest">
-          {dict.scrollHint}
+      <div className="container-lp absolute inset-x-0 bottom-8 z-10 hidden [@media(min-width:1280px)_and_(min-height:821px)]:block">
+        <a
+          href="#propuesta"
+          className="inline-flex items-center gap-2 text-xs text-ink-soft transition-colors hover:text-forest"
+        >
           <ArrowDown size={14} className="animate-bounce" />
+          {dict.scrollHint}
         </a>
       </div>
     </section>

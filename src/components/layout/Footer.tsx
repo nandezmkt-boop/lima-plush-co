@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { AtSign, Mail, Phone } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries/es";
 import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_NUMBER, buildWhatsAppLink } from "@/lib/constants";
@@ -17,12 +17,11 @@ export default function Footer({ locale, dict }: FooterProps) {
     <footer className="bg-forest-dark text-cream">
       <div className="container-lp grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr] lg:py-20">
         <div className="flex flex-col gap-5">
-          <Image
-            src="/images/brand/logo-lockup.png"
-            alt="Lima Plush Co."
-            width={220}
-            height={140}
-            className="h-16 w-auto brightness-0 invert"
+          <Logo
+            tone="light"
+            className="gap-3.5"
+            markClassName="h-12 w-auto"
+            textClassName="text-lg"
           />
           <p className="max-w-xs font-display text-lg italic text-cream/85">{dict.footer.tagline}</p>
           <a
