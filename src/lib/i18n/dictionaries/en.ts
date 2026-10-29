@@ -147,7 +147,7 @@ const en: Dictionary = {
         quote:
           "We wanted to create a character that represented Leopold Studios' identity, inspired by the Peruvian otorongo, that could become part of the experience of everyone who visits our studio. Lima Plush turned our idea into a unique piece with soul, and also created a promotional video for us in which the plush became the star. We ended up with a special piece to give our guests, making their time at the studio a truly lovely experience.",
         image: "/images/cases/leopold-studios.jpg",
-        imageAlt: "Plush Peruvian otorongo jaguar wearing a black hoodie embroidered with the Leopold Studios logo",
+        imageAlt: "Seated plush Peruvian otorongo jaguar wearing a black hoodie embroidered with the Leopold Studios logo",
       },
       {
         client: "Ludovico Helados",
@@ -156,6 +156,8 @@ const en: Dictionary = {
         quote:
           "We wanted to create a character that conveyed Ludovico's joy and spirit, so our customers could take a little piece of the brand home. We loved the result: the plush quickly became one of our customers' favorites and a special keepsake of Ludovico. Since we introduced it, our sales have grown by 10%, and the plush has become a much-loved part of our brand.",
         highlight: { value: "+10%", label: "in sales since introducing the plush" },
+        image: "/images/cases/ludovico-helados.jpg",
+        imageAlt: "Orange plush bear holding an ice cream cone, wearing a blue scarf and a T-shirt with the Ludovico Helados logo",
       },
       {
         client: "Xpecializa Consulting",

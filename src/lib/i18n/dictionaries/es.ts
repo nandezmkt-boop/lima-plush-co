@@ -158,7 +158,7 @@ const es = {
         quote:
           "Queríamos crear un personaje que representara la identidad de Leopold Studios, inspirado en el otorongo peruano, y que pudiera formar parte de la experiencia de quienes visitan nuestro estudio. Lima Plush convirtió nuestra idea en una pieza única, con alma, y además creó para nosotros un vídeo promocional en el que el peluche se convirtió en el protagonista. Conseguimos una pieza especial para entregar a nuestros invitados y hacer que su paso por el estudio fuera una experiencia muy bonita.",
         image: "/images/cases/leopold-studios.jpg",
-        imageAlt: "Peluche de otorongo peruano con polera negra bordada con el logo de Leopold Studios",
+        imageAlt: "Peluche de otorongo peruano sentado, con polera negra bordada con el logo de Leopold Studios",
       },
       {
         client: "Ludovico Helados",
@@ -167,6 +167,8 @@ const es = {
         quote:
           "Queríamos crear un personaje que transmitiera la alegría y el espíritu de Ludovico, y que nuestros clientes pudieran llevarse un pedacito de la marca a casa. El resultado nos encantó: el peluche se convirtió rápidamente en uno de los favoritos de nuestros clientes y en un recuerdo especial de Ludovico. Desde que lo incorporamos, nuestras ventas aumentaron un 10% y el peluche se convirtió en una parte muy querida de nuestra marca.",
         highlight: { value: "+10%", label: "en ventas desde que incorporaron el peluche" },
+        image: "/images/cases/ludovico-helados.jpg",
+        imageAlt: "Osito de peluche naranja con un cono de helado, pañuelo azul y camiseta con el logo de Ludovico Helados",
       },
       {
         client: "Xpecializa Consulting",
